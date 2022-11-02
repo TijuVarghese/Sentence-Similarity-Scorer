@@ -17,6 +17,8 @@ def similarity_scorer(text1,text2):
      vector_1= model.encode(text1, convert_to_tensor=True)
      vector_2 = model.encode(text2, convert_to_tensor=True)
      score=float(util.pytorch_cos_sim(vector_1, vector_2))
+     if score>1:
+        score=1
      return score
 
 
@@ -28,8 +30,8 @@ def main():
     </div>
     """
     st.markdown(html_temp,unsafe_allow_html=True)
-    text1 = st.text_input("text1","Type Here")
-    text2 = st.text_input("text2","Type Here")
+    text1 = st.text_input("text1")
+    text2 = st.text_input("text2")
     
     result=""
     if st.button("Calculate"):
