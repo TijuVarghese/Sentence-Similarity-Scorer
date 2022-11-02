@@ -10,6 +10,7 @@ def similarity_scorer(text1,text2):
      #Compute embedding for 2 sentences
      vector_1= model.encode(text1, convert_to_tensor=True)
      vector_2 = model.encode(text2, convert_to_tensor=True)
+     #cosine similarity
      score=float(util.pytorch_cos_sim(vector_1, vector_2))
      if score>1:
         score=1
