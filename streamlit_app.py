@@ -12,8 +12,6 @@ def similarity_scorer(text1,text2):
      vector_2 = model.encode(text2, convert_to_tensor=True)
      #cosine similarity
      score=float(util.pytorch_cos_sim(vector_1, vector_2))
-     if score>1:
-        score=1
      return score
 
 
@@ -28,7 +26,7 @@ def main():
     text1 = st.text_input("text1")
     text2 = st.text_input("text2")
     
-    similarity_score=""
+    similarity_score=0
     if st.button("Calculate"):
         similarity_score=similarity_scorer(text1,text2)
     st.success(similarity_score)
