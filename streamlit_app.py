@@ -27,7 +27,7 @@ def main():
     text1 = st.text_input("text1")
     text2 = st.text_input("text2")
     
-    result=""
+    similarity_score=""
     if st.button("Calculate"):
         similarity_score=similarity_scorer(text1,text2)
     st.success(similarity_score)
